@@ -22,6 +22,12 @@ The contract is owned by [SPEC.md](SPEC.md) and the suite in [conformance/](conf
 - Tests press keys right after a key that navigates (B06: Escape, j, Enter). Implementations that do full page loads must not drop those keys.
 - Single-key shortcuts must not fire while focus is in an `input`, `textarea`, `select`, or `contenteditable` element, except `Escape` ([SPEC.md section 5](SPEC.md)).
 
+## Contributing and the gate
+
+Human-authored PRs targeting `main` go through `git push no-mistakes`, not a direct push to `origin` ([CONTRIBUTING.md](CONTRIBUTING.md)).
+The `Require no-mistakes` workflow pins the gate action to an immutable commit SHA, never `@main`; bumping that pin is its own PR.
+The owner (`simkimsia`) and bot accounts are exempt from the check.
+
 ## Development
 
 ```sh

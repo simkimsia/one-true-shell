@@ -62,6 +62,10 @@ IMPL_DIR=/path/to/your/impl npx playwright test
 
 Your implementation needs a `run.sh` (see SPEC.md section 6).
 
+## Contributing
+
+PRs to `main` are raised through [no-mistakes](https://github.com/kunchenguid/no-mistakes); see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 MIT for code. Spec text: MIT for now; "conformant" means passing this suite at a declared version.

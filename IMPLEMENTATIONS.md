@@ -33,7 +33,8 @@ Implementations built and maintained by the community:
    IMPL_DIR=/path/to/your/impl npx playwright test
    ```
 
-4. Put `spec: 0.2` in your README and open a PR adding your row to the Community table (replace a "waiting" row if it is your stack). Your code lives in your own repo; link to it.
+4. Put `spec: 0.2` in your README and open a PR adding your row to the Community table (replace a "waiting" row if it is your stack).
+   Raise the PR through [no-mistakes](CONTRIBUTING.md); PRs without its signature are not merged. Your code lives in your own repo; link to it.
    Fill in your implementation's own version and the exact versions you test with: runtime, framework, data store, and frontend (framework and version, or "vanilla JS").
    Ideally your app also reports them at runtime; the Django implementation's `GET /api/version` shows one way.
 
