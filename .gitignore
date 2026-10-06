@@ -1,0 +1,10 @@
+node_modules/
+conformance/results.json
+conformance/test-results/
+conformance/playwright-report/
+*.sqlite3
+.venv/
+__pycache__/
+.last-run.txt
+.DS_Store
+db.sqlite3
