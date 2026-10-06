@@ -5,7 +5,7 @@ Open a PR adding a row; a maintainer runs the suite against it before merge.
 
 | Implementation | Stack | Spec | Passing | Maintainer |
 |---|---|---|---|---|
-| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | Django, SQLite, vanilla JS | 0.1 | 14/14 | @simkimsia |
+| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | Django, SQLite, vanilla JS | 0.2 | 16/16 | @simkimsia |
 
 ## Add yours
 

@@ -3,7 +3,10 @@ import * as path from 'path';
 
 const PORT = process.env.PORT || '8000';
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
-const IMPL_DIR = path.resolve(__dirname, process.env.IMPL_DIR || '../reference/django');
+if (!process.env.IMPL_DIR && !process.env.NO_SERVER) {
+  throw new Error('Set IMPL_DIR to your implementation (the directory with run.sh), or NO_SERVER=1 with BASE_URL.');
+}
+const IMPL_DIR = path.resolve(process.cwd(), process.env.IMPL_DIR || '.');
 
 export default defineConfig({
   testDir: './tests',
