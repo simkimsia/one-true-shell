@@ -7,6 +7,9 @@ Versions are the exact ones the implementation's CI tests with, so a row is repr
 | Implementation | Version | Runtime | Framework | Data | Frontend | Spec | Passing | Maintainer |
 |---|---|---|---|---|---|---|---|---|
 | [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | 0.1.0 | Python 3.12 | Django 6.0.8 | SQLite (Python stdlib) | vanilla JS, no build step | 0.2 | 16/16 | @simkimsia |
+| **Ruby on Rails**: *waiting for you to implement* ([add yours](#add-yours)) | | | | | | | | |
+| **Laravel**: *waiting for you to implement* ([add yours](#add-yours)) | | | | | | | | |
+| **Next.js**: *waiting for you to implement* ([add yours](#add-yours)) | | | | | | | | |
 
 ## Add yours
 

@@ -6,6 +6,7 @@ The contract is owned by [SPEC.md](SPEC.md) and the suite in [conformance/](conf
 
 - [VISION.md](VISION.md) is the product scope: structure and behavior of the shell only, tests are the contract, and the contract never depends on one stack.
 - This repo holds the contract only. Implementations live in their own repos and are listed in [IMPLEMENTATIONS.md](IMPLEMENTATIONS.md); [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) is the worked example.
+- The implementations table appears twice: [IMPLEMENTATIONS.md](IMPLEMENTATIONS.md) is the source of truth and `README.md` mirrors it. Change both in the same commit. When a placeholder stack ("waiting for you to implement") gets a real implementation, replace its row in both; don't add a second row.
 
 ## Changing the contract
 

@@ -33,6 +33,15 @@ its CI runs this suite against itself; copy its workflow. Pick any stack, add a 
 and run the suite against it (below). When it passes, open a PR adding it to
 [IMPLEMENTATIONS.md](IMPLEMENTATIONS.md).
 
+| Implementation | Version | Runtime | Framework | Data | Frontend | Spec | Passing | Maintainer |
+|---|---|---|---|---|---|---|---|---|
+| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | 0.1.0 | Python 3.12 | Django 6.0.8 | SQLite (Python stdlib) | vanilla JS, no build step | 0.2 | 16/16 | @simkimsia |
+| **Ruby on Rails**: *waiting for you to implement* ([add yours](IMPLEMENTATIONS.md#add-yours)) | | | | | | | | |
+| **Laravel**: *waiting for you to implement* ([add yours](IMPLEMENTATIONS.md#add-yours)) | | | | | | | | |
+| **Next.js**: *waiting for you to implement* ([add yours](IMPLEMENTATIONS.md#add-yours)) | | | | | | | | |
+
+[IMPLEMENTATIONS.md](IMPLEMENTATIONS.md) is the source of truth; this copy is updated with it.
+
 ## Test any implementation
 
 ```bash
