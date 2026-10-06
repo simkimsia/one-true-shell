@@ -1,6 +1,6 @@
 import { test, expect, Page } from '@playwright/test';
 
-// One True Shell conformance suite, spec v0.1.0.
+// One True Shell conformance suite, spec v0.2.0.
 // Test titles start with the behavior ID from SPEC.md section 5.
 
 const S = (name: string) => `[data-shell="${name}"]`;
@@ -199,4 +199,37 @@ test('B12 edit is optimistic and persists', async ({ page }) => {
   await page.unrouteAll({ behavior: 'ignoreErrors' });
   await page.reload();
   await expect(page.locator(`${S('main')} h1`)).toContainText('Initech Global');
+});
+
+test('B13 lists are never tabs', async ({ page }) => {
+  await page.goto('/customers/c1');
+  await page.goto('/projects/p1');
+  await expect(tabs(page)).toHaveCount(2);
+
+  await page.locator('[data-shell-nav="customers"]').click();
+  await expect(page).toHaveURL(/\/customers\/?$/);
+  await expect(tabs(page)).toHaveCount(2);
+  await expect(page.locator('[data-shell-tab][aria-selected="true"]')).toHaveCount(0);
+
+  await runPalette(page, 'Projects');
+  await expect(page).toHaveURL(/\/projects\/?$/);
+  await expect(tabs(page)).toHaveCount(2);
+  await expect(page.locator('[data-shell-tab][aria-selected="true"]')).toHaveCount(0);
+});
+
+test('B14 the sidebar marks the shown entity and follows the active tab', async ({ page }) => {
+  const nav = (entity: string) => page.locator(`[data-shell-nav="${entity}"]`);
+  await page.goto('/customers');
+  await expect(nav('customers')).toHaveAttribute('aria-current', 'page');
+  await expect(nav('projects')).not.toHaveAttribute('aria-current', 'page');
+
+  await page.goto('/customers/c1');
+  await page.goto('/projects/p1');
+  await expect(nav('projects')).toHaveAttribute('aria-current', 'page');
+  await expect(nav('customers')).not.toHaveAttribute('aria-current', 'page');
+
+  await tab(page, 'customers/c1').click();
+  await expect(page).toHaveURL(/\/customers\/c1\/?$/);
+  await expect(nav('customers')).toHaveAttribute('aria-current', 'page');
+  await expect(nav('projects')).not.toHaveAttribute('aria-current', 'page');
 });

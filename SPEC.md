@@ -1,4 +1,4 @@
-# One True Shell — Spec v0.1.0
+# One True Shell — Spec v0.2.0
 
 A testable contract for the "One True SaaS Layout"
 (layout after [Nan Yu's post](https://x.com/thenanyu/status/2105704619704029435)).
@@ -41,7 +41,8 @@ Overlays (rendered only when open):
 - Entities are defined in `schema/entities.yaml`. Seed data is in `schema/seed.json`.
 - Starting the app (`run.sh`, section 6) MUST reset data to the seed.
 - List route: `/<entity>` (e.g. `/customers`). Record route: `/<entity>/<id>`.
-- Sidebar entries: `data-shell-nav="<entity>"`, one per entity.
+- Sidebar entries: `data-shell-nav="<entity>"`, one per entity. The entry for the entity being shown
+  (its list, or the record in the active tab) has `aria-current="page"`; no other entry does.
 - List container: `data-shell-list`. Rows: `data-shell-row` with `data-id="<id>"`.
 - Lists are ordered oldest-created first (seed order, then new records at the end).
 - Exactly one row is selected at a time, marked `aria-selected="true"`. On list load, the first row is selected.
@@ -55,12 +56,14 @@ Overlays (rendered only when open):
 
 ## 4. Tabs
 
-- Tabs represent open records. Element: `data-shell-tab` with `data-id="<entity>/<id>"`.
+- Tabs represent open records, and only records. A list is never a tab. Element: `data-shell-tab` with `data-id="<entity>/<id>"`.
   The active tab has `aria-selected="true"`. Each tab has a close control: `data-shell-tab-close`.
 - Opening a record opens its tab, or activates it if already open.
 - Clicking a tab navigates to that record.
 - Closing the active tab navigates to another open tab, or to the entity list if none remain.
 - Open tabs MUST survive a page reload in the same browser.
+- Showing a list (sidebar, palette, or `Escape`) keeps every open tab open, and no tab is active.
+- The sidebar follows the tabs: when a tab becomes active, its entity's sidebar entry becomes current.
 
 ## 5. Behaviors (each maps to a test ID)
 
@@ -80,6 +83,8 @@ Overlays (rendered only when open):
 | B10 | Deep links work: loading `/<entity>/<id>` directly shows the record, the aside, and its active tab. |
 | B11 | Palette command `Create <Label>` opens the create form (inputs named by field). Submitting shows the new record **immediately**, before the server responds (optimistic), and it persists. |
 | B12 | Editing a field in the aside and pressing `Enter` updates the `<h1>` **immediately** (optimistic), and the change persists. |
+| B13 | Lists are never tabs: going to a list from the sidebar or palette keeps all open tabs and leaves none active. |
+| B14 | The sidebar entry of the shown entity has `aria-current="page"`, on lists and records, and it follows the active tab. |
 
 Shortcuts are bound at the document level and MUST NOT fire while focus is in an `input`, `textarea`, `select`, or `contenteditable` element (except `Escape`).
 
@@ -101,4 +106,4 @@ Extension attributes use the `data-shell-x-*` prefix.
 ## 8. Versioning
 
 Semantic versioning. No breaking changes to tests within a minor version.
-Implementations declare the version they target in their README: `spec: 0.1`.
+Implementations declare the version they target in their README: `spec: 0.2`.

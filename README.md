@@ -7,7 +7,7 @@ Layout credit: [Nan Yu](https://x.com/thenanyu/status/2105704619704029435).
 The behavior contract is this project's addition.
 
 - `VISION.md` — what is in and out of scope (one rule per heading)
-- `SPEC.md` — the contract (v0.1.0)
+- `SPEC.md` — the contract (v0.2.0)
 - `conformance/` — Playwright suite; the tests *are* the contract
 - `schema/` — sample entities and seed data
 - `reference/` — empty workspace the optional loop below builds into

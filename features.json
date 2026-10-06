@@ -68,5 +68,15 @@
     "id": "B12",
     "title": "Optimistic edit",
     "passes": false
+  },
+  {
+    "id": "B13",
+    "title": "Lists are never tabs",
+    "passes": false
+  },
+  {
+    "id": "B14",
+    "title": "Sidebar follows the active tab",
+    "passes": false
   }
 ]

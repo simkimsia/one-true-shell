@@ -26,7 +26,7 @@ The contract is owned by [SPEC.md](SPEC.md) and the suite in [conformance/](conf
 - `features.json` is written by `scripts/update-features.mjs` from `conformance/results.json`. Do not hand-flip `passes`.
 - "Immediately" in B11/B12 means the UI updates within 700 ms while every non-GET request is delayed 2 s. A plain form post that waits for the server fails.
 - Single-key shortcuts must not fire while focus is in an `input`, `textarea`, `select`, or `contenteditable` element, except `Escape` ([SPEC.md section 5](SPEC.md)).
-- `ralph.sh` restores the protected files from the `contract-baseline` tag after every session, so edits to them are lost.
+- `ralph.sh` restores the protected files from the newest `v*` spec tag after every session, so edits to them are lost.
 
 ## Development
 

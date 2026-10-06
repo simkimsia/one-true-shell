@@ -18,7 +18,7 @@ Open a PR adding a row; a maintainer runs the suite against it before merge.
    IMPL_DIR=/path/to/your/impl npx playwright test
    ```
 
-4. Put `spec: 0.1` in your README and open a PR adding your row above. Your code lives in your own repo; link to it.
+4. Put `spec: 0.2` in your README and open a PR adding your row above. Your code lives in your own repo; link to it.
 
 To have CI prove it on every push, copy the
 [conformance workflow](https://github.com/simkimsia/one-true-shell-django/blob/main/.github/workflows/conformance.yml)

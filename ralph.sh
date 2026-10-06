@@ -9,6 +9,7 @@ MODEL="${MODEL:-claude-opus-5-5}"
 IMPL_DIR="${IMPL_DIR:-reference/django}"
 MAX_TURNS="${MAX_TURNS:-80}"
 ITER_TIMEOUT="${ITER_TIMEOUT:-45m}"
+# Contract files are restored from the newest spec tag (v*), or from contract-baseline in a fresh clone without tags.
 PROTECTED="SPEC.md VISION.md schema conformance/tests conformance/playwright.config.ts scripts ralph.sh AGENTS.md CLAUDE.md PROMPT.md INIT_PROMPT.md"
 
 if [ "${I_AM_IN_A_SANDBOX:-}" != "1" ]; then
@@ -31,16 +32,20 @@ run_suite() {
 }
 
 enforce_ratchet() {
-  if ! git diff --quiet contract-baseline -- $PROTECTED; then
-    echo "$(date -u +%FT%TZ) ratchet: agent changed protected files; restored from contract-baseline" | tee -a progress.md
-    git checkout contract-baseline -- $PROTECTED
+  if ! git diff --quiet "$BASELINE" -- $PROTECTED; then
+    echo "$(date -u +%FT%TZ) ratchet: agent changed protected files; restored from $BASELINE" | tee -a progress.md
+    git checkout "$BASELINE" -- $PROTECTED
     git add -A && git commit -qm "ratchet: restore contract files"
   fi
 }
 
 # --- setup -------------------------------------------------------------
 git rev-parse --git-dir >/dev/null 2>&1 || { git init -q && git add -A && git commit -qm "contract v0.1.0"; }
-git rev-parse -q --verify contract-baseline >/dev/null || git tag contract-baseline
+BASELINE="$(git describe --tags --abbrev=0 --match 'v*' 2>/dev/null || true)"
+if [ -z "$BASELINE" ]; then
+  git rev-parse -q --verify contract-baseline >/dev/null || git tag contract-baseline
+  BASELINE=contract-baseline
+fi
 (cd conformance && npm install --silent && npx playwright install chromium >/dev/null)
 touch progress.md
 
