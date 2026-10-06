@@ -10,7 +10,7 @@ Reference implementations maintained by this project, proving the contract build
 
 | Implementation | Version | Runtime | Framework | Data | Frontend | Spec | Passing |
 |---|---|---|---|---|---|---|---|
-| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | 0.1.0 | Python 3.12 | Django 6.0.8 | SQLite (Python stdlib) | vanilla JS, no build step | 0.3 | 16/16 |
+| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | 0.2.0 | Python 3.12 | Django 6.0.8 | SQLite (Python stdlib) | vanilla JS, no build step | 0.3 | 16/16 |
 
 ## Community
 
