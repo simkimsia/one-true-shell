@@ -2,71 +2,71 @@
   {
     "id": "L01",
     "title": "Six regions present",
-    "passes": true
+    "passes": false
   },
   {
     "id": "L02",
     "title": "Landmarks",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B01",
     "title": "Palette open/close",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B02",
     "title": "Palette navigation",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B03",
     "title": "Sidebar navigation",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B04",
     "title": "j/k list selection",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B05",
     "title": "Open record / Escape back",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B06",
     "title": "Tabs",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B07",
     "title": "Tabs restored after reload",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B08",
     "title": "Shortcut sheet + input guard",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B09",
     "title": "Sidebar toggle",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B10",
     "title": "Deep links",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B11",
     "title": "Optimistic create",
-    "passes": true
+    "passes": false
   },
   {
     "id": "B12",
     "title": "Optimistic edit",
-    "passes": true
+    "passes": false
   }
 ]

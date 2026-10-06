@@ -5,7 +5,7 @@ Open a PR adding a row; a maintainer runs the suite against it before merge.
 
 | Implementation | Stack | Spec | Passing | Maintainer |
 |---|---|---|---|---|
-| [reference/django](reference/django/) | Django, SQLite, vanilla JS | 0.1 | 14/14 | this repo |
+| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | Django, SQLite, vanilla JS | 0.1 | 14/14 | @simkimsia |
 
 ## Add yours
 
@@ -18,6 +18,10 @@ Open a PR adding a row; a maintainer runs the suite against it before merge.
    IMPL_DIR=/path/to/your/impl npx playwright test
    ```
 
-4. Put `spec: 0.1` in your README and open a PR adding your row above. Your code can live in your own repo; link to it.
+4. Put `spec: 0.1` in your README and open a PR adding your row above. Your code lives in your own repo; link to it.
+
+To have CI prove it on every push, copy the
+[conformance workflow](https://github.com/simkimsia/one-true-shell-django/blob/main/.github/workflows/conformance.yml)
+from the Django implementation. It checks out this repo at a spec tag and points the suite at your checkout.
 
 Stacks nobody has done yet are the most useful: Rails, Laravel, Phoenix LiveView, Next.js, SvelteKit, htmx, Go, .NET.

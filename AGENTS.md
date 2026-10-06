@@ -32,7 +32,7 @@ The contract is owned by [SPEC.md](SPEC.md) and the suite in [conformance/](conf
 
 ```sh
 cd conformance && npm install && npx playwright install chromium
-IMPL_DIR=../reference/django npx playwright test
+IMPL_DIR=/path/to/impl npx playwright test
 I_AM_IN_A_SANDBOX=1 ./ralph.sh
 ```
 
