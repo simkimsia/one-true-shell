@@ -24,7 +24,7 @@ Within a minor version, a change may add tests but must not make a previously co
 
 An implementation is conformant when it passes the suite at a declared spec version.
 The only integration point is an executable `run.sh` that resets data to `schema/seed.json` and serves on `${PORT:-8000}`.
-The suite must run against any implementation through `IMPL_DIR` without code changes to the suite.
+The suite must run against any implementation, with that implementation's own entities, through `IMPL_DIR` without code changes to the suite.
 Implementations live in their own repositories and are listed in `IMPLEMENTATIONS.md` once they pass at a declared version.
 The contract never depends on Django, or on anything only one implementation provides.
 We do not change the contract to make any one implementation easier to build.

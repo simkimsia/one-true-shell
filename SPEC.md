@@ -1,4 +1,4 @@
-# One True Shell — Spec v0.2.0
+# One True Shell — Spec v0.3.0
 
 A testable contract for the "One True SaaS Layout"
 (layout after [Nan Yu's post](https://x.com/thenanyu/status/2105704619704029435)).
@@ -38,9 +38,19 @@ Overlays (rendered only when open):
 
 ## 2. Entities, routing, data
 
-- Entities are defined in `schema/entities.yaml`. Seed data is in `schema/seed.json`.
+- Entities are defined in `schema/entities.yaml`; seed data is in `schema/seed.json`.
+  An implementation MAY ship its own `schema/` with its real entities; the suite then runs against
+  that data. Without one, the suite uses this repo's sample `schema/`. Setting `SHELL_SCHEMA_DIR`
+  overrides both, and the suite passes the chosen directory to `run.sh` in that variable.
+- The data MUST meet these rules, which the suite checks before running:
+  - at least two entities; the first (in `entities.yaml` order) has at least 3 seed records, the second at least 2;
+  - each entity has a `label`, a `plural`, and exactly one `string` field marked `title: true`;
+  - entity keys and record ids use only letters, digits, `-` and `_`;
+  - no entity's plural contains another entity's plural, so palette filtering is unambiguous.
+- Tests use the first entity for lists, tabs, create and edit, and the second for cross-entity checks.
+  Create fills the title field and any other required field (with the first seed record's value).
 - Starting the app (`run.sh`, section 6) MUST reset data to the seed.
-- List route: `/<entity>` (e.g. `/customers`). Record route: `/<entity>/<id>`.
+- List route: `/<entity>` (e.g. `/customers`), where `<entity>` is the key in `entities.yaml`. Record route: `/<entity>/<id>`.
 - Sidebar entries: `data-shell-nav="<entity>"`, one per entity. The entry for the entity being shown
   (its list, or the record in the active tab) has `aria-current="page"`; no other entry does.
 - List container: `data-shell-list`. Rows: `data-shell-row` with `data-id="<id>"`.
@@ -106,4 +116,4 @@ Extension attributes use the `data-shell-x-*` prefix.
 ## 8. Versioning
 
 Semantic versioning. No breaking changes to tests within a minor version.
-Implementations declare the version they target in their README: `spec: 0.2`.
+Implementations declare the version they target in their README: `spec: 0.3`.

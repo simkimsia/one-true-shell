@@ -20,7 +20,7 @@ Each region in the drawing maps to one `data-shell` attribute the tests look for
 | bottom bar | `data-shell="statusbar"` |
 
 - `VISION.md` — what is in and out of scope (one rule per heading)
-- `SPEC.md` — the contract (v0.2.0)
+- `SPEC.md` — the contract (v0.3.0)
 - `conformance/` — Playwright suite; the tests *are* the contract
 - `schema/` — sample entities and seed data
 - `IMPLEMENTATIONS.md` — every conformant implementation; add yours
@@ -31,7 +31,7 @@ Who uses the contract, and where to start:
 
 - **You are building a new app, in any stack.** Add a `run.sh`, run the suite until it passes, and list it. Start at [Build one in your stack](#build-one-in-your-stack).
 - **You own a design system, or you are a designer or PM.** Build the six regions and the keyboard behavior into your shell component once, use the behavior IDs as acceptance criteria, and carry the region names into Figma. Read [One True Shell for design systems, designers, and PMs](docs/for-design-systems.md).
-- **You have an existing app.** Adopt it in stages: mark the regions you already have (most apps have `main` and some kind of side panel), add the missing ones, give each record its own URL, then add the keyboard layer and instant saves. Today the suite runs against the sample entities, so an existing app with its own entities cannot point the suite at itself yet; making the tests read entities from the implementation is the next planned spec change.
+- **You have an existing app and want to make it better.** Score it against the 16 behaviors, adopt them in tiers (layout, navigation, palette, tabs, instant saves), and run the suite against your own entities as you go. Read [Make an existing app better with One True Shell](docs/for-existing-apps.md).
 - **You design in Figma.** Figma can carry the structure (name frames after the regions) but not the behavior, which is proven only once there is code. See [the Figma section](docs/for-design-systems.md#figma).
 
 ## Build one in your stack
@@ -48,7 +48,7 @@ Reference implementations maintained by this project, proving the contract build
 
 | Implementation | Version | Runtime | Framework | Data | Frontend | Spec | Passing |
 |---|---|---|---|---|---|---|---|
-| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | 0.1.0 | Python 3.12 | Django 6.0.8 | SQLite (Python stdlib) | vanilla JS, no build step | 0.2 | 16/16 |
+| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | 0.1.0 | Python 3.12 | Django 6.0.8 | SQLite (Python stdlib) | vanilla JS, no build step | 0.3 | 16/16 |
 
 ### Community
 

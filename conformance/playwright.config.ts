@@ -1,4 +1,5 @@
 import { defineConfig } from '@playwright/test';
+import * as fs from 'fs';
 import * as path from 'path';
 
 const PORT = process.env.PORT || '8000';
@@ -7,6 +8,15 @@ if (!process.env.IMPL_DIR && !process.env.NO_SERVER) {
   throw new Error('Set IMPL_DIR to your implementation (the directory with run.sh), or NO_SERVER=1 with BASE_URL.');
 }
 const IMPL_DIR = path.resolve(process.cwd(), process.env.IMPL_DIR || '.');
+
+// The entities and seed the suite runs against (SPEC.md section 2): SHELL_SCHEMA_DIR if set, else the
+// implementation's own schema/, else this repo's sample. Exported so run.sh and the tests see the same data.
+const implSchema = path.join(IMPL_DIR, 'schema');
+process.env.SHELL_SCHEMA_DIR = path.resolve(
+  process.cwd(),
+  process.env.SHELL_SCHEMA_DIR ||
+    (process.env.IMPL_DIR && fs.existsSync(path.join(implSchema, 'entities.yaml')) ? implSchema : path.join(__dirname, '../schema')),
+);
 
 export default defineConfig({
   testDir: './tests',
@@ -22,6 +32,6 @@ export default defineConfig({
     url: BASE_URL,
     reuseExistingServer: false,
     timeout: 120_000,
-    env: { PORT },
+    env: { PORT, SHELL_SCHEMA_DIR: process.env.SHELL_SCHEMA_DIR },
   },
 });

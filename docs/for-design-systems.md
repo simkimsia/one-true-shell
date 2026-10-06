@@ -34,7 +34,7 @@ The highest-leverage move is to make conformance a property of your design syste
 
 1. Add the `data-shell` attributes inside your shell components (rail, sidebar, tabs, main, aside, status bar). They are invisible to users and do not affect styling.
 2. Ship the keyboard behavior with the shell: `j`/`k` to move through a list, `Enter` to open, `Escape` to go back, `Ctrl+K`/`Cmd+K` for the palette, `?` for the shortcut sheet, `[` to hide the sidebar.
-3. Keep a small demo app in the design-system repo that uses the shell with the sample data in [`schema/`](../schema/), and run the suite against it in CI, the way [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) does.
+3. Keep a small demo app in the design-system repo that uses the shell with the sample data in [`schema/`](../schema/) (or entities closer to your products), and run the suite against it in CI, the way [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) does.
 4. Show the result: a CI badge on the design-system docs, and a row in [IMPLEMENTATIONS.md](../IMPLEMENTATIONS.md).
 
 Every product built on that shell then starts from a conformant base.
@@ -44,7 +44,7 @@ Every product built on that shell then starts from a conformant base.
 The behavior table in [SPEC.md](../SPEC.md#5-behaviors-each-maps-to-a-test-id) is already written as "the app MUST do X", one test per line.
 In a PRD or ticket, one line can stand in for a page of interaction specs:
 
-> The app shell conforms to One True Shell spec 0.2 (all 16 behaviors pass in CI).
+> The app shell conforms to One True Shell spec 0.3 (all 16 behaviors pass in CI).
 
 If a product only needs part of it, name the behaviors: "L01, L02, B01 to B05 must pass." Engineering cannot read that two ways, because each ID is a test.
 
@@ -82,8 +82,7 @@ Mark your own regions and controls with the `data-shell-x-*` prefix (for example
 - Edits and new records show up immediately, before the server answers.
 - Nothing visual was forced by the contract: if a visual choice is only there "for the spec", it is not.
 
-## Current limit
+## Your own entities
 
-The suite is written against the sample entities (customers and projects).
-A design-system demo app can load that sample data easily, but an existing product with its own entities cannot yet point the suite at itself.
-Making the tests read entities from the implementation is the planned next step for the spec.
+Since spec 0.3 the suite runs against whatever entities an implementation ships in its own `schema/`, so a design-system demo app can use realistic records from your domain, and product teams can prove conformance against their real data.
+See [Make an existing app better](for-existing-apps.md#run-the-suite-against-your-own-app) for the setup.

@@ -1,7 +1,12 @@
 {
   "name": "one-true-shell-conformance",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
-  "scripts": { "test": "playwright test" },
-  "devDependencies": { "@playwright/test": "^1.48.0" }
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "yaml": "^2.9.1"
+  }
 }

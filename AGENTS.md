@@ -18,6 +18,8 @@ The contract is owned by [SPEC.md](SPEC.md) and the suite in [conformance/](conf
 
 ## Sharp edges
 
+- Tests never name sample records. They take entity A (first) and B (second) and their seed records from `tests/shell-data.ts`, which loads `SHELL_SCHEMA_DIR` (resolved in `playwright.config.ts`) and enforces the data rules in SPEC.md section 2. A new test must do the same, and a new data rule goes in both places.
+- Before tagging, also run the suite with a non-sample schema (`SHELL_SCHEMA_DIR=/path/to/other/schema`) to prove no test leans on the sample data.
 - "Immediately" in B11/B12 means the UI updates within 700 ms while every non-GET request is delayed 2 s. A plain form post that waits for the server fails.
 - Tests press keys right after a key that navigates (B06: Escape, j, Enter). Implementations that do full page loads must not drop those keys.
 - Single-key shortcuts must not fire while focus is in an `input`, `textarea`, `select`, or `contenteditable` element, except `Escape` ([SPEC.md section 5](SPEC.md)).
