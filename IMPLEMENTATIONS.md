@@ -2,10 +2,11 @@
 
 Implementations that pass the conformance suite at a declared spec version.
 Open a PR adding a row; a maintainer runs the suite against it before merge.
+Versions are the exact ones the implementation's CI tests with, so a row is reproducible.
 
-| Implementation | Stack | Spec | Passing | Maintainer |
-|---|---|---|---|---|
-| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | Django, SQLite, vanilla JS | 0.2 | 16/16 | @simkimsia |
+| Implementation | Runtime | Framework | Data | Frontend | Spec | Passing | Maintainer |
+|---|---|---|---|---|---|---|---|
+| [one-true-shell-django](https://github.com/simkimsia/one-true-shell-django) | Python 3.12 | Django 6.0.8 | SQLite (Python stdlib) | vanilla JS, no build step | 0.2 | 16/16 | @simkimsia |
 
 ## Add yours
 
@@ -14,11 +15,12 @@ Open a PR adding a row; a maintainer runs the suite against it before merge.
 3. Run the suite against it:
 
    ```sh
-   cd conformance && npm install && npx playwright install chromium
+   cd conformance && npm ci && npx playwright install chromium
    IMPL_DIR=/path/to/your/impl npx playwright test
    ```
 
 4. Put `spec: 0.2` in your README and open a PR adding your row above. Your code lives in your own repo; link to it.
+   Fill in the exact versions you test with: runtime, framework, data store, and frontend (framework and version, or "vanilla JS").
 
 To have CI prove it on every push, copy the
 [conformance workflow](https://github.com/simkimsia/one-true-shell-django/blob/main/.github/workflows/conformance.yml)
