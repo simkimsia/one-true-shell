@@ -1,16 +1,72 @@
 [
-  { "id": "L01", "title": "Six regions present", "passes": false },
-  { "id": "L02", "title": "Landmarks", "passes": false },
-  { "id": "B01", "title": "Palette open/close", "passes": false },
-  { "id": "B02", "title": "Palette navigation", "passes": false },
-  { "id": "B03", "title": "Sidebar navigation", "passes": false },
-  { "id": "B04", "title": "j/k list selection", "passes": false },
-  { "id": "B05", "title": "Open record / Escape back", "passes": false },
-  { "id": "B06", "title": "Tabs", "passes": false },
-  { "id": "B07", "title": "Tabs restored after reload", "passes": false },
-  { "id": "B08", "title": "Shortcut sheet + input guard", "passes": false },
-  { "id": "B09", "title": "Sidebar toggle", "passes": false },
-  { "id": "B10", "title": "Deep links", "passes": false },
-  { "id": "B11", "title": "Optimistic create", "passes": false },
-  { "id": "B12", "title": "Optimistic edit", "passes": false }
+  {
+    "id": "L01",
+    "title": "Six regions present",
+    "passes": true
+  },
+  {
+    "id": "L02",
+    "title": "Landmarks",
+    "passes": true
+  },
+  {
+    "id": "B01",
+    "title": "Palette open/close",
+    "passes": true
+  },
+  {
+    "id": "B02",
+    "title": "Palette navigation",
+    "passes": true
+  },
+  {
+    "id": "B03",
+    "title": "Sidebar navigation",
+    "passes": true
+  },
+  {
+    "id": "B04",
+    "title": "j/k list selection",
+    "passes": true
+  },
+  {
+    "id": "B05",
+    "title": "Open record / Escape back",
+    "passes": true
+  },
+  {
+    "id": "B06",
+    "title": "Tabs",
+    "passes": true
+  },
+  {
+    "id": "B07",
+    "title": "Tabs restored after reload",
+    "passes": true
+  },
+  {
+    "id": "B08",
+    "title": "Shortcut sheet + input guard",
+    "passes": true
+  },
+  {
+    "id": "B09",
+    "title": "Sidebar toggle",
+    "passes": true
+  },
+  {
+    "id": "B10",
+    "title": "Deep links",
+    "passes": true
+  },
+  {
+    "id": "B11",
+    "title": "Optimistic create",
+    "passes": true
+  },
+  {
+    "id": "B12",
+    "title": "Optimistic edit",
+    "passes": true
+  }
 ]

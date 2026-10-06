@@ -10,7 +10,14 @@ The behavior contract is this project's addition.
 - `SPEC.md` — the contract (v0.1.0)
 - `conformance/` — Playwright suite; the tests *are* the contract
 - `schema/` — sample entities and seed data
-- `reference/django/` — reference implementation (built by the loop)
+- `reference/django/` — reference implementation, passes 14/14
+- `IMPLEMENTATIONS.md` — every conformant implementation; add yours
+
+## Build one in your stack
+
+The Django version is one implementation, not the point. Pick any stack, add a `run.sh`,
+and run the suite against it (below). When it passes, open a PR adding it to
+[IMPLEMENTATIONS.md](IMPLEMENTATIONS.md).
 
 ## Run the loop (Claude Code)
 
