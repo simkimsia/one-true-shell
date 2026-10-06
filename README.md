@@ -25,6 +25,15 @@ Each region in the drawing maps to one `data-shell` attribute the tests look for
 - `schema/` — sample entities and seed data
 - `IMPLEMENTATIONS.md` — every conformant implementation; add yours
 
+## Scenarios
+
+Who uses the contract, and where to start:
+
+- **You are building a new app, in any stack.** Add a `run.sh`, run the suite until it passes, and list it. Start at [Build one in your stack](#build-one-in-your-stack).
+- **You own a design system, or you are a designer or PM.** Build the six regions and the keyboard behavior into your shell component once, use the behavior IDs as acceptance criteria, and carry the region names into Figma. Read [One True Shell for design systems, designers, and PMs](docs/for-design-systems.md).
+- **You have an existing app.** Adopt it in stages: mark the regions you already have (most apps have `main` and some kind of side panel), add the missing ones, give each record its own URL, then add the keyboard layer and instant saves. Today the suite runs against the sample entities, so an existing app with its own entities cannot point the suite at itself yet; making the tests read entities from the implementation is the next planned spec change.
+- **You design in Figma.** Figma can carry the structure (name frames after the regions) but not the behavior, which is proven only once there is code. See [the Figma section](docs/for-design-systems.md#figma).
+
 ## Build one in your stack
 
 Implementations live in their own repos. The first one,
